@@ -2,7 +2,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?=base_url()?>">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fab fa-angellist"></i>
                 </div>
@@ -29,17 +29,14 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link " href="#" data-toggle="collapse" data-target="#collapseTwo"
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Address</span>
+                    <span>Meeting Room</span>
                 </a>
-                <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?=base_url("Province")?>">Province</a>
-                        <a class="collapse-item" href="<?=base_url("Amphur")?>">Amphur</a>
-                        <a class="collapse-item" href="<?=base_url("District")?>">District</a>
-                        <a class="collapse-item" href="<?=base_url("Zipcode")?>">Zipcode</a>
+                        <a class="collapse-item" href="<?=base_url("Reserve")?>">Reserve</a>
                     </div>
                 </div>
             </li>

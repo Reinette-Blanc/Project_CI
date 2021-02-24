@@ -40,79 +40,78 @@
                                 <div class="p-5">
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
-                                    </div>                                   
-                                     <?php 
-                                        $attr = array(
-                                            'class'=>'user',
-                                            'id'=>'frmlogin',
-                                            'name'=>'frmlogin'
-                                        );
-                                     echo form_open("User/login",$attr); ?>                                        
-                                        <div class="form-group">                                           
-                                            <?php 
+                                    </div>
+                                     <? 
+                                     $attr = array('class'=>'user','id'=>'frmlogin','name'=>'frmlogin');
+                                    echo form_open("User/login",$attr); 
+                                    ?>
+                                        <div class="form-group">
+                                            
+                                                <?php
                                                 $attr = array(
                                                     'class'=>'form-control form-control-user',
+                                                    'autocomplete' => 'off',
                                                     'placeholder'=>'รหัสผู้ใช้งาน',
-                                                    'autocomplete'=>'off',
                                                     'name'=>'username',
-                                                    'id'=>'username',
+                                                    'id' => 'username',
                                                     'value'=>set_value("username")?set_value("username"):''
                                                 );
                                                 echo form_input($attr);
-                                             ?>    
+                                                 ?>
                                         </div>
                                         <div class="form-group">
-                                            <?php 
+                                             <?php
                                                 $attr = array(
                                                     'class'=>'form-control form-control-user',
                                                     'placeholder'=>'รหัสผ่าน',
                                                     'name'=>'pwd',
-                                                    'id'=>'pwd',
+                                                    'id' => 'pwd'
                                                 );
                                                 echo form_password($attr);
-                                             ?>    
+                                                 ?>
                                         </div>
-
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
-                                                <?php 
+                                               
+                                                <?php
                                                 $attr = array(
                                                     'class'=>'custom-control-input',
-                                                    'placeholder'=>'รหัสผู้ใช้งาน',
+                                                    'placeholder'=>'รหัสผ่าน',
                                                     'name'=>'remember',
-                                                    'id'=>'remember',
-                                                    'checked'=> TRUE,
-                                                    'value'=>'86400'
+                                                    'id' => 'remember',
+                                                    'checked' =>true,
+                                                    'value' => '86400'
                                                 );
                                                 echo form_checkbox($attr);
-                                             ?>    
+                                                 ?>
                                                 <label class="custom-control-label" for="remember">จดจำไว้ 1 วัน</label>
                                             </div>
                                         </div>
-                                        <?php 
+                                        <?php
                                         $attr = array(
-                                            'class'=>"btn btn-primary btn-user btn-block",
-                                            'name'=>"btn-login",
-                                            'id'=>"btn-login",
-                                            'value'=>"เข้าสู่ระบบ",
+                                        'class'=>"btn btn-primary btn-user btn-block",
+                                        'name'=>"btn-login",
+                                        'id'=>"btn-login",
+                                        'value'=>"เข้าสู่ระบบ"
                                         );
                                         echo form_submit($attr);
                                         ?>
                                         
-                                    <?php echo form_close() ?>
+                                        <?php echo form_close() ?>
+                                        <?php if($this->session->flashdata('flash_error')){
+                                ?>
+                                <div class="col-12 col-sm-6">
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        <?=$this->session->flashdata('flash_error')?>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                     <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    </div>
+                                </div>
+                              <?} ?>
+                                    </form>
                                     <hr>
-
-                                    <?php if($this->session->flashdata('flash_errors')){ ?>     
-                                    <div class="col-12 col-sm-12">
-                                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                          <?= $this->session->flashdata('flash_errors')  ?>
-                                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                          </button>
-                                        </div>
-                                    </div>                                  
-                                    <?php } ?>
-                                  
+                                    
                                 </div>
                             </div>
                         </div>
