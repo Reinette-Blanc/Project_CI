@@ -108,7 +108,7 @@
                                     </button>
                                     </div>
                                 </div>
-                              <?} ?>
+                              <?php } ?>
                                     </form>
                                     <hr>
                                     

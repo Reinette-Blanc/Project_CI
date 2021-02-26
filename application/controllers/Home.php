@@ -15,16 +15,9 @@ class Home extends CI_Controller
 
 	public function index()
 	{
-		$this->session->set_userdata('language','GB');	
-
 		$data['lang'] = $this->session->userdata('language');
-
-		$this->load->view('conference/index.php',$data);
+		$this->load->view('rooming/index.php',$data);
 	}
 
-	public function test()
-	{
-	
-	}
 }
  ?>

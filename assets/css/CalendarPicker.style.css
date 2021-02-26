@@ -48,7 +48,7 @@
 }
 
 #calendar #calendar-grid {
-    grid-template-rows: repeat(6, 1fr);
+    grid-template-rows: repeat(5, 1fr);
     justify-items: flex-start;
     grid-row: 2/-1;
     grid-column: 1/2;
