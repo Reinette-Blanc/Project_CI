@@ -9,7 +9,10 @@
 
 <body>
     <?php   $attr = array('class'=>'user','id'=>'frmlogin','name'=>'frmlogin');
-            echo form_open("User/login",$attr); ?>
+            echo (isset($_GET['date']) ? 
+            form_open("User/login?date=".$_GET['date'],$attr) : 
+            form_open("User/login",$attr));
+    ?>
 
     <div class="form-group">
         <?php

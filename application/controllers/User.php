@@ -1,6 +1,7 @@
 <?php
 
 class User extends CI_Controller{
+
 	function __construct(){
 		parent::__construct();
 		$this->load->model('User_model');
@@ -16,13 +17,13 @@ class User extends CI_Controller{
 		$this->form_validation->set_rules('pwd',' รหัสผ่าน', 'required',
 		array('required'=>' Please, fill in password.'));
 
-		if($this->form_validation->run() == FALSE){
-			$this->session->set_flashdata('flash_error',
-				validation_errors()
-		);
+		if($this->form_validation->run() == FALSE)
+		{
+			$this->session->set_flashdata('flash_error', validation_errors());
 			$this->load->view("login");
 		}
-		else{
+		else
+		{
 			$username = $this->input->post('username');
 			$pwd = $this->input->post('pwd');
 			if($user = $this->User_model->checklogin($username,$pwd)){
@@ -32,13 +33,18 @@ class User extends CI_Controller{
 					'ss_user_fullname'=> $user->fullname
 				);
 				$this->session->set_userdata($sess_data);
-				redirect("Home");
+				if(isset($_GET['date']))
+				{
+					redirect("Schedule?date=".$_GET['date']);
+				}
+				else
+				{
+					redirect("Home");
+				}
 			}
 			else{
-				$this->session->set_flashdata('flash_error',
-				"username or password incorrect"
-		);
-			$this->load->view("login");
+				$this->session->set_flashdata('flash_error', "Username or password is incorrect.");
+				$this->load->view("login");
 			}
 		}
 		
