@@ -1,3 +1,4 @@
 /admin/application/cache/*
-
+/admin/application/config/*
+/application/config/*
 /application/cache/*
