@@ -1,5 +1,4 @@
 <style type="text/css">
-<<<<<<< HEAD
     #calendar-wrap {
         display: grid;
         justify-items: center;
@@ -11,15 +10,6 @@
             'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
             sans-serif;
     }
-
-    #myCalendarWrapper {
-        width: 40em;
-        border: 1px;
-        padding: 1em 3em;
-        position: relative;
-        font-size: 1rem;
-        margin: auto;
-=======
     #myCalendarWrapper {
         width: 40em;
         border: 1px;
@@ -65,6 +55,5 @@
         margin: auto;
         margin-top: 1rem;
         margin-bottom: 1rem;
->>>>>>> f4820a9bccf1f8a556976a27c35587b2ff128bde
     }
 </style>
