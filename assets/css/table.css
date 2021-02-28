@@ -1,4 +1,4 @@
-body {
+.table-center {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -10,7 +10,8 @@ body {
 
 table {
     width: 100%;
-    max-width: 50rem
+    max-width: 40rem;
+    border-collapse: inherit;
 }
 
 table tr:nth-child(even) th {
@@ -19,12 +20,14 @@ table tr:nth-child(even) th {
 }
 
 table th, table td {
-    padding: 0.5rem 1rem
+    padding: 0.6rem 1rem
 }
 
 table th {
+    text-align: center;
     font-weight: normal;
-    border-top: thin dotted #ccc
+    border-top: thin dotted #ccc;
+    width: 8rem;
 }
 
 table td {
@@ -32,8 +35,20 @@ table td {
     font-weight: bold;
     line-height: 1.4;
     border-radius: 0.2rem;
-    transition: opacity 0.3s ease
+    transition: opacity 0.3s ease;
+    height:100%;
 }
+
+td a {
+    text-decoration: none;
+    color:black; 
+}
+
+td a:hover {
+    text-decoration: none;
+    color: #f1f1f1;
+  }
+  
 
 table td>span {
     font-size: 0.8em;

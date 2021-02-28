@@ -9,27 +9,14 @@
 <?php $this->load->view('rooming/inc/css')?>
 
 <body>
-    <h1>Rooming</h1>
-    
+    <?php $this->load->view('rooming/inc/header')?>
+    <div id = "calendar-wrp">
     <div id="showcase-wrapper">
         <div id="myCalendarWrapper"></div>
         <a id = "link">View Schedule</a>
     </div>
+    </div>
 </body>
-
-<style type = "text/css">
-    body {
-            display: grid;
-            justify-items: center;
-            align-content: center;
-            min-height: 100vh;
-            padding: 0;
-            margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-                'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-                sans-serif;
-        }
-</style>
 
 <script>
     const nextYear = new Date().getFullYear() + 1;
