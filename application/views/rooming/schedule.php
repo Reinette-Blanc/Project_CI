@@ -22,92 +22,44 @@
 		</select>
 		<button class="btn btn-primary" type="submit"> Go </button>
 	</form>
-
 	<div class="table-center">
 		<table>
-
-			<!-- <tr>
-				<th>08:00 - 08:30</th>
-
-				<td colspan="4" rowspan="3" class="stage-saturn">
-					<a href="Add" >Click here to add</a>
-				</td>
-
-			</tr>
-			<tr>
-				<th>08:30 - 09:00</th>
-			</tr>
-			<tr>
-				<th>09:00 - 09:30</th>
-				
-			</tr>
-			<tr>
-				<th>09:30</th>
-				<td colspan="4" rowspan="4" class="stage-earth">
-					Meeting <span>Reserve by Bob</span>
-				</td>
-			</tr>
-			<tr>
-				<th>10:00</th>
-			
-			</tr>
-			<tr>
-				<th>10:30</th>
-				
-			</tr>
-			<tr>
-				<th>11:00</th>
-
-			</tr>
-			<tr>
-				<th>11:30</th>
-				<td colspan="4" rowspan="5" class="stage-saturn">
-					<a href="Add" >Click here to add</a>
-				</td>
-			</tr>
-			<tr>
-				<th>12:00</th>
-				
-			</tr>
-			<tr>
-				<th>12:30</th>
-			</tr>
-			<tr>
-				<th>13:00</th>
-			</tr>
-			<tr>
-				<th>13:30</th>
-				
-			</tr>
-			<tr>
-				<th>14:00</th>
-				<td colspan="4" rowspan="4" class="stage-earth">
-					Meeting <span>Reserve by Bob</span>
-				</td>
-			</tr>
-			<tr>
-				<th>14:30</th>
-	
-			</tr>
-			<tr>
-				<th>15:00</th>
-			</tr>
-			<tr>
-				<th>15:30</th>
-			</tr>
-			<tr>
-				<th>16:00</th>
-			</tr>
-			<tr>
-				<th>16:30</th>
-			</tr>
-			<tr>
-				<th>17:00</th>
-				<td colspan="1" rowspan="4" class="stage-earth">
-					Meeting <span>Reserve by Bob</span>
-				</td>
-			</tr> -->
-
+			<?php for($i = 0; $i < count($starttime)-1; $i++) {?>
+				<tr>
+					<th><?php echo $time[$i];?></th>
+					<?php foreach($reserve as $reserves) {
+						if ($reserves['start']==$starttime[$i])
+						{
+							echo '<td colspan="4" rowspan="'.$reserves['length'].'" class="';
+							if($reserves['subject']=="Free")
+							{
+								echo 'stage-mercury';
+							}
+							else
+							{
+								echo 'stage-venus';
+							}
+							echo '"';
+							if($reserves['length']>=3)
+							{
+								echo 'style = "font-size:1.20rem;"';
+							}
+							echo '>';
+							if($reserves['subject']=="Free")
+							{
+								echo '<a href="';
+								echo base_url("Book?date=".$date."&starttime=".$reserves['start']."&length=".$reserves['length']).'"';
+								echo '>Click here to book the meeting room.</a>';
+							}
+							else
+							{
+								echo $reserves['subject'].'<span>Reserve by '.$reserves['reserver'].'</span></td>';
+							}	
+						}
+					}?>
+				</tr>
+			<?php }?>
+		
 		</table>
 	</div>
 </body>

@@ -44,6 +44,14 @@ class Schedule extends CI_Controller
 							array_push($reserve_array,$reserves);
 							$index++;
 						}
+						else if($reserves['start']!=800 && $index==0)
+						{
+							$freetimelength = ($reserves['start'] - 800)/50;
+							array_push($reserve_array,array("subject"=>"Free","reserver"=>"None","start"=>"800","length"=>$freetimelength));
+							$index++;
+							array_push($reserve_array,$reserves);
+							$index++;
+						}
 						else if($reserves['start']==($reserve_array[$index-1]['start']+(50*$reserve_array[$index-1]['length'])))
 						{
 							array_push($reserve_array,$reserves);
@@ -62,15 +70,15 @@ class Schedule extends CI_Controller
 					if($reserve_array[count($reserve_array)-1]['start']!=1650)
 					{
 						$freetimestart = $reserve_array[count($reserve_array)-1]['start']+(50*$reserve_array[count($reserve_array)-1]['length']);
-						$freetimelength = (1650 - $freetimestart)/50;
+						$freetimelength = (1700 - $freetimestart)/50;
 						array_push($reserve_array,array("subject"=>"Free","reserver"=>"None","start"=>$freetimestart,"length"=>$freetimelength));
 					}
+					$data['reserve']=$reserve_array;
 				}
 				else
 				{
-					$data['reserve'] = NULL;
+					$data['reserve'] = array(array("subject"=>"Free","reserver"=>"None","start"=>800,"length"=>18));
 				}
-				$data['reserve']=$reserve_array;
 				$this->load->view("rooming/schedule", $data);
 			}
 		} else {
