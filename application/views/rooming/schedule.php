@@ -13,7 +13,7 @@
 	<p><?php echo $date; ?></p>
 
 	<form method="get" action="<? echo base_url("Schedule")?>">
-		<input type="hidden" id="date" name="date" value="<?php echo $date; ?>">
+		<input type="hidden" id="date" name="date" value="<?php echo $date;?>">
 		<label for="roomid">Choose a meeting room :</label>
 		<select name="roomid" id="roomid">
 			<?php foreach ($room as $rooms) { ?>

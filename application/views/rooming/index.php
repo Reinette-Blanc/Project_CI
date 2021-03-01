@@ -13,7 +13,10 @@
     <div id = "calendar-wrp">
     <div id="showcase-wrapper">
         <div id="myCalendarWrapper"></div>
-        <a id = "link">View Schedule</a>
+        <form class="d-flex" id="viewscheduleform" action="<? echo base_url("Schedule")?>">
+            <input type="hidden" id="date" name="date" value="">
+            <button class="btn" id="title" type="submit">View Schedule</button>
+        </form>
     </div>
     </div>
 </body>
@@ -26,11 +29,9 @@
         max: new Date(nextYear, 10) // NOTE: new Date(nextYear, 10) is "Sun Nov 01 <nextYear>"
     });
 
-    var linkurl = document.getElementById('link');
-    linkurl.setAttribute("href", "<?php echo base_url("Schedule?date=")?>"+myCalender.value.getFullYear()+"-"+(myCalender.value.getMonth()+1>10?myCalender.value.getMonth()+1:"0"+(myCalender.value.getMonth()+1))+"-"+(myCalender.value.getDate()>10?myCalender.value.getDate():"0"+myCalender.value.getDate()));
-
+    $('#date').val(myCalender.value.getFullYear()+"-"+(myCalender.value.getMonth()+1>10?myCalender.value.getMonth()+1:"0"+(myCalender.value.getMonth()+1))+"-"+(myCalender.value.getDate()>10?myCalender.value.getDate():"0"+myCalender.value.getDate()));
     myCalender.onValueChange((currentValue) => {
-        linkurl.setAttribute("href", "<?php echo base_url("Schedule?date=")?>"+currentValue.getFullYear()+"-"+(currentValue.getMonth()+1>10?currentValue.getMonth()+1:"0"+(currentValue.getMonth()+1))+"-"+(currentValue.getDate()>10?currentValue.getDate():"0"+currentValue.getDate()));
+        $('#date').val(currentValue.getFullYear()+"-"+(currentValue.getMonth()+1>10?currentValue.getMonth()+1:"0"+(currentValue.getMonth()+1))+"-"+(currentValue.getDate()>10?currentValue.getDate():"0"+currentValue.getDate()));
         console.log(`The current value of the calendar is: ${currentValue}`);
     });
 </script>

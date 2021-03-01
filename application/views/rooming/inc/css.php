@@ -1,4 +1,13 @@
 <style type="text/css">
+
+    #calendar-wrapper {
+        margin-top: 2em;
+    }
+
+    #calendar-wrapper header h4 {
+        text-align: center;
+    }
+
     #calendar-wrap {
         display: grid;
         justify-items: center;
@@ -10,6 +19,7 @@
             'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
             sans-serif;
     }
+
     #myCalendarWrapper {
         width: 40em;
         border: 1px;
@@ -17,6 +27,14 @@
         position: relative;
         font-size: 1rem;
         margin: auto;
+    }
+
+    #viewscheduleform {
+        justify-content: center;
+    }
+
+    #viewscheduleform button {
+        font-size: 1.25rem;
     }
 
     .text-header {
