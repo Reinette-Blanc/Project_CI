@@ -1,5 +1,4 @@
 <style type="text/css">
-
     #calendar-wrapper {
         margin-top: 2em;
     }
@@ -73,5 +72,23 @@
         margin: auto;
         margin-top: 1rem;
         margin-bottom: 1rem;
+    }
+
+    #booking {
+        background-color: transparent;
+        border-style: none;
+        outline: none;
+        font-weight: bold;
+    }
+
+    #booking:hover {
+        color: #F5F5F5;
+        cursor: pointer;
+    }
+
+    .btn:focus,
+    .btn:active {
+        outline: none !important;
+        box-shadow: none;
     }
 </style>

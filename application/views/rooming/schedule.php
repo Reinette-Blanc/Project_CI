@@ -46,10 +46,15 @@
 							}
 							echo '>';
 							if($reserves['subject']=="Free")
-							{
-								echo '<a href="';
-								echo base_url("Book?date=".$date."&starttime=".$reserves['start']."&length=".$reserves['length']).'"';
-								echo '>Click here to book the meeting room.</a>';
+							{?>
+								<form method="post" action="<? echo base_url("Book")?>">
+									<input type="hidden" id="starttime" name="starttime" value="<?php echo $reserves['start'];?>">
+									<input type="hidden" id="length" name="length" value="<?php echo $reserves['length'];?>">
+									<input type="hidden" id="date" name="date" value="<?php echo $date;?>">
+									<input type="hidden" id="roomid" name="roomid" value="<?php echo $roomid;?>">
+									<input id="booking" type="submit" value="Click here to book the meeting room.">
+								</form>
+							<?php
 							}
 							else
 							{

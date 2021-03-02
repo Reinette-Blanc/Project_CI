@@ -36,19 +36,7 @@ table td {
     line-height: 1.4;
     border-radius: 0.2rem;
     transition: opacity 0.3s ease;
-    height:100%;
 }
-
-td a {
-    text-decoration: none;
-    color:black; 
-}
-
-td a:hover {
-    text-decoration: none;
-    color: #f1f1f1;
-  }
-  
 
 table td>span {
     font-size: 0.8em;
