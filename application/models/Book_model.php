@@ -1,7 +1,7 @@
 <?php
 class Book_model extends CI_Model {
 
-	public function reserveRoom($data) {
+	public function insertReserve($data) {
         $this->db->insert('reserve', $data);
 	}
 	

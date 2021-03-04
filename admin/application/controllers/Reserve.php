@@ -93,13 +93,67 @@ class Reserve extends CI_Controller
 	}
 
 	public function editForm() {
+		$data['date']=$this->input->get('date');
+		$data['roomid']=$this->input->get('roomid');
+		$data['reserveid']=$this->input->get('reserveid');
 		$data['content'] = "reserve/editForm";
+		$data['select'] = $this->Data_model->getReserve($data['reserveid']);
+		$before = $this->Data_model->getBeforeTime($data['date'],$data['roomid'],$data['select']['start']);
+		if($before)
+		{
+			$freebefore['start'] = $data['select']['start'] - ($data['select']['start'] - ($before['start']+($before['length']*50)));
+			$freebefore['length'] = ($data['select']['start'] - ($before['start']+($before['length']*50)))/50;
+		}
+		else
+		{
+			$freebefore['start'] = 800;
+			$freebefore['length'] = ($data['select']['start']-800)/50;
+		}
+		$data['before'] = $freebefore;
+
+		$after = $this->Data_model->getAfterTime($data['date'],$data['roomid'],$data['select']['start']);
+
+		if($after)
+		{
+			$freeafter['start'] = $data['select']['start'] + ($data['select']['length']*50);
+			$freeafter['length'] = ($after['start'] - $freeafter['start'])/50;
+		}
+		else
+		{
+			$freeafter['start'] = $data['select']['start'] + ($data['select']['length']*50);
+			$freeafter['length'] = (1700-($data['select']['start']+($data['select']['length']*50)))/50;
+		}
+
+		$data['after'] = $freeafter;
 		$this->load->view("layout/main",$data);
 	}
 
-	public function delete() {
-		$this->Data_model->deleteReserve($_POST['reserveid']);
+	public function add() {
+		$data['subject'] = $this->input->post('subject');
+		$data['reserver'] = $this->input->post('reserver');
+		$data['start'] = $this->input->post('starttime');
+		$data['length'] = $this->input->post('length');
+		$data['date'] = $this->input->post('date');
+		$data['room_id'] = $this->input->post('roomid');
+		$this->Data_model->insertReserve($data);
 		redirect("Reserve?date=".$_POST['date']."&roomid=".$_POST['roomid']);
+	}
+
+	public function update() {
+		$id = $this->input->post('reserveid');
+		$data['subject'] = $this->input->post('subject');
+		$data['reserver'] = $this->input->post('reserver');
+		$data['start'] = $this->input->post('starttime');
+		$data['length'] = $this->input->post('length');
+		$data['date'] = $this->input->post('date');
+		$data['room_id'] = $this->input->post('roomid');
+		$this->Data_model->updateReserve($data,$id);
+		redirect("Reserve?date=".$_POST['date']."&roomid=".$_POST['roomid']);
+	}
+
+	public function delete() {
+		$this->Data_model->deleteReserve($_GET['reserveid']);
+		redirect("Reserve?date=".$_GET['date']."&roomid=".$_GET['roomid']);
 	}
 
 }

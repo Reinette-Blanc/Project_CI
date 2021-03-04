@@ -18,48 +18,51 @@
             <!-- Card Header - Accordion -->
             <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse"
                 role="button" aria-expanded="true" aria-controls="collapseCardExample">
-                <h6 class="m-0 font-weight-bold text-primary">Dashboard</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Reserve</h6>
             </a>
             <!-- Card Content - Collapse -->
             <div class="collapse show" id="collapseCardExample">
                 <div class="card-body">
                 
                 <div class="form-all" style="width: 500px;">
-        <div class="form-group" style="text-align: center;">
-            <span class="text-header">Book</span>
-        </div>
 
-        <form method="post" class="form-inline justify-content-left" action="<?php echo base_url("Book/add") ?>">
+        <form method="post" class="form-inline justify-content-left" action="<?php echo base_url("Reserve/add") ?>">
             <input type="hidden" id="starttime" name="starttime" value="<?php echo $starttime; ?>" />
             <input type="hidden" id="formlength" name="length" value="1" />
             <input type="hidden" name="date" value="<?php echo $date; ?>" />
             <input type="hidden" name="roomid" value="<?php echo $roomid; ?>" />
 
-            <div class="form-group row" >
+            <div class="form-group row" style="margin:10px">
                 <label class="col-form-label">Start Time</label>
-                <div style="margin-left:10px;">
+                <div style="margin-left:8px;">
                 <button type="button" class="btn btn-outline-primary btn-subtract">-</button>
-                <input type="text" class="form-control" value="00:00" id="input-time" readonly />
+                <input type="text" class="form-control" value="00:00" id="input-time" style="width: 50%;" readonly />
                 <button type="button" class="btn btn-outline-primary btn-add">+</button>
                 </div>
             </div>
 
-            <div class="form-group row">
+            <div class="form-group row" style="margin:10px">
                 <label class="col-form-label">Duration</label>
-                <div style="margin-left:20px;">
+                <div style="margin-left:20px;width:240px">
                 <button type="button" class="btn btn-outline-primary btn-subtract-minute">-</button>
-                <input type="text" class="form-control" value="30" id="duration" readonly />
+                <input type="text" class="form-control" value="30" id="duration" style="width: 60%;" readonly />
                 <button type="button" class="btn btn-outline-primary btn-add-minute">+</button>
-                <label class="col-form-label" id="labelduration">minutes</label>
+
                 </div>
+                <span for="duration" id="labelduration">minutes</span>
             </div>
 
-            <div class="form-group row" style="margin-bottom: 20px;">
+            <div class="form-group row" style="margin:10px; margin-bottom: 10px;">
                 <label class="col-form-label">Subject</label>
-                <input type="text" name="subject" class="form-control" style="margin-left:30px; width: 288px;" required oninvalid="this.setCustomValidity('Please, enter subject.')" /> 
+                <input type="text" name="subject" class="form-control" style="margin-left:30px; width: 288px;" required /> 
             </div>
 
-            <input type="submit" value="Reserve" style="width:75%; margin:auto" class="form-control btn btn-primary btn-user" />
+            <div class="form-group row" style="margin:10px; margin-bottom: 10px;">
+                <label class="col-form-label">Reserver</label>
+                <input type="text" name="reserver" class="form-control" style="margin-left:20px; width: 288px;" required /> 
+            </div>
+
+            <input type="submit" value="Reserve" style="width:75%; margin:20px 10px;" class="form-control btn btn-primary btn-user" />
         </form>
     </div>
 

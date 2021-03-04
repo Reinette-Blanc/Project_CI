@@ -29,7 +29,7 @@ class Book extends CI_Controller
 		$data['length'] = $this->input->post('length');
 		$data['date'] = $this->input->post('date');
 		$data['room_id'] = $this->input->post('roomid');
-		$this->Book_model->reserveRoom($data);
+		$this->Book_model->insertReserve($data);
 		redirect("Schedule?date=".$data['date']."&roomid=".$data['room_id']);
 	}
 

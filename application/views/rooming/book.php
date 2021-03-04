@@ -32,13 +32,13 @@
 
             <div class="form-group row">
                 <label class="col-form-label">Duration</label>
-                <div style="margin-left:20px;">
+                <div style="margin-left:20px;width:240px">
                 <button type="button" class="btn btn-outline-primary btn-subtract-minute">-</button>
-                <input type="text" class="form-control" value="30" id="duration" style="width: 20%;" readonly />
+                <input type="text" class="form-control" value="30" id="duration" style="width: 60%;" readonly />
                 <button type="button" class="btn btn-outline-primary btn-add-minute">+</button>
-                
+
                 </div>
-                <label for="duration" id="labelduration">minutes</label>
+                <span for="duration" id="labelduration">minutes</span>
             </div>
 
             <div class="form-group row" style="margin-bottom: 20px;">

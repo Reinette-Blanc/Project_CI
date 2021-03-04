@@ -66,7 +66,9 @@
                                             } else {
                                                 echo $reserve['subject'] . '<span>Reserved by ' . $reserve['reserver'] . '</span></td>'; ?>
                                                 <td colspan="1" rowspan="<?php echo$reserve['length'];?>" class="stage-yellow">
-                                                    <form method="post" action="<? echo base_url("Reserve/editForm")?>">
+                                                    <form method="get" action="<? echo base_url("Reserve/editForm")?>">
+                                                        <input type="hidden" id="date" name="date" value="<?php echo $date; ?>">
+                                                        <input type="hidden" id="roomid" name="roomid" value="<?php echo $roomid; ?>">
                                                         <input type="hidden" id="reserveid" name="reserveid" value="<?php echo $reserve['reserve_id']; ?>">
                                                         <input id="submitButton" type="submit" value="Edit">
                                                     </form>
