@@ -91,4 +91,9 @@
         outline: none !important;
         box-shadow: none;
     }
+
+    .btn:disabled {
+        color:grey;
+        border-color: grey;
+    }
 </style>

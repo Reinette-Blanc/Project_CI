@@ -16,8 +16,8 @@
 		<input type="hidden" id="date" name="date" value="<?php echo $date;?>">
 		<label for="roomid">Choose a meeting room :</label>
 		<select name="roomid" id="roomid">
-			<?php foreach ($room as $rooms) { ?>
-				<option value=<?php echo $rooms['room_id'] ?>> <?php echo $rooms['room_name']; ?> </option>
+			<?php foreach ($rooms as $room) { ?>
+				<option value=<?php echo $room['room_id'] ?>> <?php echo $room['room_name']; ?> </option>
 			<?php } ?>
 		</select>
 		<button class="btn btn-primary" type="submit"> Go </button>
@@ -27,11 +27,11 @@
 			<?php for($i = 0; $i < count($starttime)-1; $i++) {?>
 				<tr>
 					<th><?php echo $time[$i];?></th>
-					<?php foreach($reserve as $reserves) {
-						if ($reserves['start']==$starttime[$i])
+					<?php foreach($reserves as $reserve) {
+						if ($reserve['start']==$starttime[$i])
 						{
-							echo '<td colspan="4" rowspan="'.$reserves['length'].'" class="';
-							if($reserves['subject']=="Free")
+							echo '<td colspan="4" rowspan="'.$reserve['length'].'" class="';
+							if($reserve['subject']=="Free")
 							{
 								echo 'stage-mercury';
 							}
@@ -40,16 +40,16 @@
 								echo 'stage-venus';
 							}
 							echo '"';
-							if($reserves['length']>=3)
+							if($reserve['length']>=3)
 							{
 								echo 'style = "font-size:1.20rem;"';
 							}
 							echo '>';
-							if($reserves['subject']=="Free")
+							if($reserve['subject']=="Free")
 							{?>
 								<form method="post" action="<? echo base_url("Book")?>">
-									<input type="hidden" id="starttime" name="starttime" value="<?php echo $reserves['start'];?>">
-									<input type="hidden" id="length" name="length" value="<?php echo $reserves['length'];?>">
+									<input type="hidden" id="starttime" name="starttime" value="<?php echo $reserve['start'];?>">
+									<input type="hidden" id="length" name="length" value="<?php echo $reserve['length'];?>">
 									<input type="hidden" id="date" name="date" value="<?php echo $date;?>">
 									<input type="hidden" id="roomid" name="roomid" value="<?php echo $roomid;?>">
 									<input id="booking" type="submit" value="Click here to book the meeting room.">
@@ -58,7 +58,7 @@
 							}
 							else
 							{
-								echo $reserves['subject'].'<span>Reserve by '.$reserves['reserver'].'</span></td>';
+								echo $reserve['subject'].'<span>Reserved by '.$reserve['reserver'].'</span></td>';
 							}	
 						}
 					}?>
@@ -70,7 +70,7 @@
 </body>
 
 <script>
-	document.getElementById("roomid").selectedIndex = <?php echo $_GET['roomid'] - 1; ?>;
+	document.getElementById("roomid").value = <?php echo $_GET['roomid']; ?>;
 </script>
 
 </html>

@@ -1,0 +1,111 @@
+table {
+    width: 100%;
+    max-width: 40rem;
+    padding: 3rem 0rem;
+    border-collapse: inherit;
+    margin: auto;
+    color: black;
+}
+
+table body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: -system-ui, -apple-system, BlinkMacSystemFont, sans-serif
+}
+
+table tr:nth-child(even) th {
+    color: #ccc;
+    font-weight: normal
+}
+
+table th, table td {
+    padding: 0.6rem 1rem
+}
+
+table th {
+    text-align: center;
+    font-weight: normal;
+    border-top: thin dotted #ccc;
+    font-size: 0.9rem;
+    width: 8rem;
+}
+
+table td {
+    font-size: 0.8rem;
+    font-weight: bold;
+    line-height: 1.4;
+    border-radius: 0.2rem;
+    transition: opacity 0.3s ease;
+    font-size:1.20rem;
+}
+
+table td>span {
+    font-size: 0.8em;
+    font-weight: normal;
+    display: block;
+    width: 100%
+}
+
+.stage-yellow {
+    background-color: #ffd857;
+    text-align: center;
+}
+
+.stage-red {
+    background-color: #ff2015;
+    text-align: center;
+    opacity: 0.7;
+    color:whitesmoke;
+}
+
+.stage-earth {
+    background-color: #FFA726
+}
+
+.stage-mercury {
+    background-color: #9CCC65
+}
+
+.stage-venus {
+    background-color: #FF8A65
+}
+
+.stage-mars {
+    background-color: #B3E5FC
+}
+
+.stage-jupiter {
+    background-color: #81D4FA
+}
+
+.stage-saturn {
+    background-color: #26C6DA
+}
+
+.stage-red #submitButton {
+    background-color: transparent;
+    border-style: none;
+    outline: none;
+    font-weight: bold;
+    color: white;
+}
+
+.stage-red #submitButton:hover {
+    color: black;
+    cursor: pointer;
+}
+
+#submitButton {
+    background-color: transparent;
+    border-style: none;
+    outline: none;
+    font-weight: bold;
+}
+
+#submitButton:hover {
+    color: #F5F5F5;
+    cursor: pointer;
+}

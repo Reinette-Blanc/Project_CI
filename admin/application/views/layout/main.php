@@ -17,7 +17,6 @@
 
             <? $this->load->view($content) ?>
 
-            <? $this->load->view("layout/footer")?>
 
         </div>
         <!-- End of Content Wrapper -->

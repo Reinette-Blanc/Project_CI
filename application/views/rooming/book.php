@@ -67,7 +67,7 @@
         var currentLength = parseInt($("#duration").val());
         var hour = 1.0;
         var start = <?php echo $starttime ?>;
-        var end = start + (maxLength * 50);
+        var end = start + ((maxLength-1) * 50);
         var current = start;
         var hourint = parseInt(current / 100);
         var hourtext = "00";
@@ -84,13 +84,19 @@
         $('#input-time').val(hourtext+minutetext);
 
         $('.btn-add').on('click', function() {
+            resetDuration();
+            maxLength-=1;
             changeTime(50);
         });
         $('.btn-subtract').on('click', function() {
+            resetDuration();
+            maxLength+=1;
             changeTime(-50);
         });
         
         function changeTime(time) {
+            console.log("max"+maxLength);
+            console.log("min"+minLength);
             current += time;
             hourint = parseInt(current / 100);
             checkmin = current % 100;
@@ -106,17 +112,28 @@
                 hourtext = "" + hourint;
             }
 
+            $('.btn-add').prop('disabled', false);
+            $('.btn-subtract').prop('disabled', false);
+
             if (current == start) {
                 $('.btn-subtract').prop('disabled', true);
             } else if (current == end) {
                 $('.btn-add').prop('disabled', true);
-            } else {
-                $('.btn-add').prop('disabled', false);
-                $('.btn-subtract').prop('disabled', false);
             }
-
+            
+            if(minLength==maxLength)
+            {
+                $('.btn-add-minute').prop('disabled', true);
+                $('.btn-subtract-minute').prop('disabled', true);
+            }
+            else
+            {
+                $('.btn-add-minute').prop('disabled', false);
+            }
             $('#input-time').val(hourtext + minutetext);
             $('#starttime').val(current);
+
+            
         }
 
         $('.btn-add-minute').on('click', function() {
@@ -130,14 +147,14 @@
             currentLength += minute;
             hour = currentLength / 60;
             $('#formlength').val(currentLength / 30);
+            $('.btn-add-minute').prop('disabled', false);
+            $('.btn-subtract-minute').prop('disabled', false);
             if (currentLength / 30 == minLength) {
                 $('.btn-subtract-minute').prop('disabled', true);
             } else if (currentLength / 30 == maxLength) {
                 $('.btn-add-minute').prop('disabled', true);
-            } else {
-                $('.btn-add-minute').prop('disabled', false);
                 $('.btn-subtract-minute').prop('disabled', false);
-            }
+            } 
             if (hour == 1) {
                 $("#duration").val(hour);
                 $('#labelduration').html("hour");
@@ -148,6 +165,12 @@
                 $("#duration").val(currentLength);
                 $('#labelduration').html("minutes");
             }
+        }
+
+        function resetDuration() {
+            currentLength = 30;
+            $("#duration").val(30);
+            $('#labelduration').html("minutes");
         }
     });
 </script>
