@@ -30,7 +30,7 @@
                                 <option value="<?php echo $room['room_id']; ?>"><?php echo $room['room_name']; ?></option>
                             <?php } ?>
                         </select>
-                        <input type="submit" value="submit" />
+                        <input type="submit" class="btn btn-primary" value="Go" />
                     </form>
 
                     <table>
@@ -55,7 +55,7 @@
                                             }
                                             echo '">';
                                             if ($reserve['subject'] == "Free") { ?>
-                                                <form method="post" action="<? echo base_url("Reserve/addForm")?>">
+                                                <form method="get" action="<? echo base_url("Reserve/addForm")?>">
                                                     <input type="hidden" id="starttime" name="starttime" value="<?php echo $reserve['start']; ?>">
                                                     <input type="hidden" id="length" name="length" value="<?php echo $reserve['length']; ?>">
                                                     <input type="hidden" id="date" name="date" value="<?php echo $date; ?>">
@@ -72,7 +72,7 @@
                                                     </form>
                                                 </td>
                                                 <td colspan="1" rowspan="<?php echo$reserve['length'];?>" class="stage-red">
-                                                    <form method="post" action="<? echo base_url("Reserve/delete")?>">
+                                                    <form method="get" action="<? echo base_url("Reserve/delete")?>">
                                                         <input type="hidden" id="reserveid" name="reserveid" value="<?php echo $reserve['reserve_id']; ?>">
                                                         <input type="hidden" id="date" name="date" value="<?php echo $date; ?>">
                                                         <input type="hidden" id="roomid" name="roomid" value="<?php echo $roomid; ?>">

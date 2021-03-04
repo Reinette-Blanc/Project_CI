@@ -28,7 +28,7 @@
                         
                         <input type="hidden" name="id" value="<?php echo (isset($room)?$room['room_id']:"");?>"/>
                         <input type="text" name="name" value="<?php echo (isset($room)?$room['room_name']:"");?>"/>
-                        <input type="submit" value="<?php echo (isset($room)?"Update":"Add");?>"/>
+                        <input type="submit" class="btn btn-primary" value="<?php echo (isset($room)?"Update":"Add");?>"/>
                     </form>
                 </div>
             </div>

@@ -84,6 +84,10 @@ class Reserve extends CI_Controller
 	}
 
 	public function addForm() {
+		$data['starttime']=$this->input->get('starttime');
+		$data['length']=$this->input->get('length');
+		$data['date']=$this->input->get('date');
+		$data['roomid']=$this->input->get('roomid');
 		$data['content'] = "reserve/addForm";
 		$this->load->view("layout/main",$data);
 	}

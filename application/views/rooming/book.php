@@ -15,32 +15,38 @@
             <span class="text-header">Book</span>
         </div>
 
-        <form method="post" class="form-inline justify-content-center" action="<?php echo base_url("Book/add") ?>">
+        <form method="post" class="form-inline justify-content-left" action="<?php echo base_url("Book/add") ?>">
             <input type="hidden" id="starttime" name="starttime" value="<?php echo $starttime; ?>" />
             <input type="hidden" id="formlength" name="length" value="1" />
             <input type="hidden" name="date" value="<?php echo $date; ?>" />
             <input type="hidden" name="roomid" value="<?php echo $roomid; ?>" />
 
-            <div class="form-group row">
-                <label class="col-form-label" style="margin-right: 15px;">Start Time</label>
+            <div class="form-group row" >
+                <label class="col-form-label">Start Time</label>
+                <div style="margin-left:10px;">
                 <button type="button" class="btn btn-outline-primary btn-subtract">-</button>
-                <input type="text" class="form-control" value="00:00" id="input-time" readonly />
+                <input type="text" class="form-control" value="00:00" id="input-time" style="width: 50%;" readonly />
                 <button type="button" class="btn btn-outline-primary btn-add">+</button>
+                </div>
             </div>
 
             <div class="form-group row">
-                <label class="col-form-label" style="margin-right: 15px;">Duration</label>
+                <label class="col-form-label">Duration</label>
+                <div style="margin-left:20px;">
                 <button type="button" class="btn btn-outline-primary btn-subtract-minute">-</button>
-                <input type="text" class="form-control" value="30" id="duration" readonly />
+                <input type="text" class="form-control" value="30" id="duration" style="width: 20%;" readonly />
                 <button type="button" class="btn btn-outline-primary btn-add-minute">+</button>
+                
+                </div>
+                <label for="duration" id="labelduration">minutes</label>
             </div>
 
-            <div class="form-group row">
-                <label class="col-form-label" style="margin-right: 15px;">Subject</label>
-                <input type="text"  name="subject" class="form-control" style="width: 100;" required oninvalid="this.setCustomValidity('Please, enter subject.')" /> 
+            <div class="form-group row" style="margin-bottom: 20px;">
+                <label class="col-form-label">Subject</label>
+                <input type="text" name="subject" class="form-control" style="margin-left:30px; width: 288px;" required oninvalid="this.setCustomValidity('Please, enter subject.')" /> 
             </div>
 
-            <input type="submit" value="submit" style="display:block !important;" class="form-control btn btn-primary btn-user" />
+            <input type="submit" value="Reserve" style="width:75%; margin:auto" class="form-control btn btn-primary btn-user" />
         </form>
     </div>
 </body>

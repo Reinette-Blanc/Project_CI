@@ -106,4 +106,9 @@
   margin-top: 2rem;
     }
 
+    .row {
+        margin: 1rem 2rem;
+        width: 80%;
+    }
+
 </style>
