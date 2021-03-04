@@ -10,52 +10,41 @@
 
 <body>
     <?php $this->load->view('rooming/inc/header') ?>
-    <p>Book</p>
-    <form method="post" action="<?php echo base_url("Book/add") ?>">
+    <div class="form-all" style="width: 500px;">
+        <div class="form-group" style="text-align: center;">
+            <span class="text-header">Book</span>
+        </div>
 
-        <input type="hidden" id="starttime" name="starttime" value="<?php echo $starttime; ?>" />
-        <input type="hidden" id="formlength" name="length" value="1" />
-        <input type="hidden" name="date" value="<?php echo $date; ?>" />
-        <input type="hidden" name="roomid" value="<?php echo $roomid; ?>" />
+        <form method="post" class="form-inline justify-content-center" action="<?php echo base_url("Book/add") ?>">
+            <input type="hidden" id="starttime" name="starttime" value="<?php echo $starttime; ?>" />
+            <input type="hidden" id="formlength" name="length" value="1" />
+            <input type="hidden" name="date" value="<?php echo $date; ?>" />
+            <input type="hidden" name="roomid" value="<?php echo $roomid; ?>" />
 
-        <table>
-            <tr>
-                <td>
-                    Start Time
-                </td>
-                <td>
-                    <button type="button" class="btn btn-outline-primary btn-subtract">-</button>
-                    <input type="text" value="00:00" id="input-time" readonly />
-                    <button type="button" class="btn btn-outline-primary btn-add">+</button>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Duration
-                </td>
-                <td>
-                    <button type="button" class="btn btn-outline-primary btn-subtract-minute">-</button>
-                    <input type="text" value="30" id="duration" readonly />
-                    <button type="button" class="btn btn-outline-primary btn-add-minute">+</button>
-                    <label for="input-time" id="labelduration">minutes</label>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Subject
-                </td>
-                <td>
-                    <input type="text" name="subject" required oninvalid="this.setCustomValidity('Please, enter subject.')"/>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <input type="submit" value="submit" />
-                </td>
-            </tr>
-        </table>
-    </form>
+            <div class="form-group row">
+                <label class="col-form-label" style="margin-right: 15px;">Start Time</label>
+                <button type="button" class="btn btn-outline-primary btn-subtract">-</button>
+                <input type="text" class="form-control" value="00:00" id="input-time" readonly />
+                <button type="button" class="btn btn-outline-primary btn-add">+</button>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-form-label" style="margin-right: 15px;">Duration</label>
+                <button type="button" class="btn btn-outline-primary btn-subtract-minute">-</button>
+                <input type="text" class="form-control" value="30" id="duration" readonly />
+                <button type="button" class="btn btn-outline-primary btn-add-minute">+</button>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-form-label" style="margin-right: 15px;">Subject</label>
+                <input type="text"  name="subject" class="form-control" style="width: 100;" required oninvalid="this.setCustomValidity('Please, enter subject.')" /> 
+            </div>
+
+            <input type="submit" value="submit" style="display:block !important;" class="form-control btn btn-primary btn-user" />
+        </form>
+    </div>
 </body>
+
 
 <script>
     $(function() {

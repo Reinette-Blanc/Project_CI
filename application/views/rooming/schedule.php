@@ -10,18 +10,26 @@
 
 <body>
 	<?php $this->load->view('rooming/inc/header') ?>
-	<p><?php echo $date; ?></p>
-
-	<form method="get" action="<? echo base_url("Schedule")?>">
+	
+	<div class="schedule-head" style="text-align:center">
+<div class="form-group" style="margin:1rem 0;">
+	<span class="text-header">The select date is <?php echo $monthlist[$month]." ".$day.", ".$year; ?></span>
+	</div>
+	<form method="get" action="<? echo base_url("Schedule")?>" style="display: inline-block; margin:1rem 0;">
 		<input type="hidden" id="date" name="date" value="<?php echo $date;?>">
 		<label for="roomid">Choose a meeting room :</label>
-		<select name="roomid" id="roomid">
+		<select name="roomid" id="roomid" class="custom-select">
 			<?php foreach ($rooms as $room) { ?>
 				<option value=<?php echo $room['room_id'] ?>> <?php echo $room['room_name']; ?> </option>
 			<?php } ?>
 		</select>
 		<button class="btn btn-primary" type="submit"> Go </button>
 	</form>
+
+	
+
+	</div>
+
 	<div class="table-center">
 		<table>
 			<?php for($i = 0; $i < count($starttime)-1; $i++) {?>

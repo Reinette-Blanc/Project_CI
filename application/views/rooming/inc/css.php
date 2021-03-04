@@ -96,4 +96,14 @@
         color:grey;
         border-color: grey;
     }
+
+    .custom-select {
+        width: auto;
+    }
+
+    .schedule-head {
+  width: 100%;
+  margin-top: 2rem;
+    }
+
 </style>
