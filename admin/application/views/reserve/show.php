@@ -98,7 +98,7 @@
 </div>
 <!-- /.container-fluid -->
 <script>
-    document.getElementById("roomid").selectedIndex = <?php echo ($roomid ? $roomid - 1 : 0) ?>;
+    document.getElementById("roomid").value = <?php echo $_GET['roomid']; ?>;
 </script>
 
 </div>
