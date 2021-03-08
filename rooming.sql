@@ -17,13 +17,35 @@
 CREATE DATABASE IF NOT EXISTS `rooming` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `rooming`;
 
--- Dumping data for table rooming.admin: ~1 rows (approximately)
+-- Dumping structure for table rooming.admin
+CREATE TABLE IF NOT EXISTS `admin` (
+  `admin_id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) DEFAULT NULL,
+  `pwd` varchar(255) DEFAULT NULL,
+  `fullname` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`admin_id`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- Dumping data for table rooming.admin: ~0 rows (approximately)
 /*!40000 ALTER TABLE `admin` DISABLE KEYS */;
 INSERT INTO `admin` (`admin_id`, `username`, `pwd`, `fullname`) VALUES
 	(1, 'admin', '25d55ad283aa400af464c76d713c07ad', 'Sittipon Pakornmanokul');
 /*!40000 ALTER TABLE `admin` ENABLE KEYS */;
 
--- Dumping data for table rooming.reserve: ~17 rows (approximately)
+-- Dumping structure for table rooming.reserve
+CREATE TABLE IF NOT EXISTS `reserve` (
+  `reserve_id` int(11) NOT NULL AUTO_INCREMENT,
+  `subject` varchar(50) NOT NULL DEFAULT 'Meeting',
+  `reserver` varchar(255) NOT NULL,
+  `start` int(11) NOT NULL,
+  `length` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `room_id` int(11) NOT NULL,
+  PRIMARY KEY (`reserve_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
+
+-- Dumping data for table rooming.reserve: ~24 rows (approximately)
 /*!40000 ALTER TABLE `reserve` DISABLE KEYS */;
 INSERT INTO `reserve` (`reserve_id`, `subject`, `reserver`, `start`, `length`, `date`, `room_id`) VALUES
 	(2, 'Meeting', 'Bob', 800, 2, '2021-02-27', 1),
@@ -44,19 +66,40 @@ INSERT INTO `reserve` (`reserve_id`, `subject`, `reserver`, `start`, `length`, `
 	(31, 'Sales Meeting', 'John Lemon', 800, 2, '2021-03-04', 2),
 	(32, 'Product Presentation', 'John Lemon', 1300, 2, '2021-03-04', 2),
 	(33, 'Sales Meeting', 'Test User', 800, 3, '2021-03-04', 1),
-	(34, 'Receive VIP', 'Adam Levi', 1050, 1, '2021-03-04', 1);
+	(34, 'Receive VIP', 'Adam Levi', 1050, 1, '2021-03-04', 1),
+	(35, 'Sales Meeting', 'John Lemon', 1550, 1, '2021-03-04', 1),
+	(36, 'Sales Presentation', 'Bob Marley', 950, 1, '2021-03-07', 1),
+	(38, 'New Recruit Interview', 'John Smith', 900, 4, '2021-03-07', 5),
+	(39, 'New Recruit Interview', 'John Smith', 800, 3, '2021-03-07', 1),
+	(40, 'Executive Meeting', 'John Lemon', 800, 6, '2021-03-07', 2);
 /*!40000 ALTER TABLE `reserve` ENABLE KEYS */;
+
+-- Dumping structure for table rooming.room
+CREATE TABLE IF NOT EXISTS `room` (
+  `room_id` int(11) NOT NULL AUTO_INCREMENT,
+  `room_name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`room_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table rooming.room: ~4 rows (approximately)
 /*!40000 ALTER TABLE `room` DISABLE KEYS */;
 INSERT INTO `room` (`room_id`, `room_name`) VALUES
 	(1, 'Conference'),
 	(2, 'Sub Conference'),
-	(5, 'Library'),
-	(7, 'Presentation');
+	(8, 'Lab B404'),
+	(9, 'Lab B403');
 /*!40000 ALTER TABLE `room` ENABLE KEYS */;
 
--- Dumping data for table rooming.user: ~2 rows (approximately)
+-- Dumping structure for table rooming.user
+CREATE TABLE IF NOT EXISTS `user` (
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) DEFAULT NULL,
+  `pwd` varchar(255) DEFAULT NULL,
+  `fullname` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- Dumping data for table rooming.user: ~0 rows (approximately)
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` (`user_id`, `username`, `pwd`, `fullname`) VALUES
 	(1, 'user', '25d55ad283aa400af464c76d713c07ad', 'Test User'),
